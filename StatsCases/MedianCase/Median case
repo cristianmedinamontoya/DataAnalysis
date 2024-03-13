@@ -1,0 +1,14 @@
+import numpy as np
+
+large_set = np.genfromtxt('household_income.csv', delimiter=',')
+
+
+small_set_median_array = np.array([10100, 35500, 105000, 85000, 25500, 40500, 65000])
+
+small_set_median = np.median(small_set_median_array)
+
+print(small_set_median)
+
+large_set_median = np.median(large_set)
+
+print(large_set_median)

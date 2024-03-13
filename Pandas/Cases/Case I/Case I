@@ -1,0 +1,19 @@
+import pandas as pd
+
+orders = pd.read_csv('shoefly.csv')
+print(orders.head())
+print('\n')
+#This is how you can 
+emails = orders.email
+print(emails.head())
+print('\n')
+#From the Table orders i'll filter data by checking the column as (orders.first_name) & (orders.last_name)
+frances_palmer = orders[(orders.first_name == 'Frances') & (orders.last_name == 'Palmer')]
+print(frances_palmer)
+print('\n')
+#isin() is used to check stuff, in this case is to check inside orders column(shoe.type)
+#So its going in the table orders, then going inside the column shoe_type and then
+#check with isin() three types of shoe_type
+comfy_shoes = orders[orders.shoe_type.isin(['clogs', 'boots', 'ballet flats'])]
+
+print(comfy_shoes)

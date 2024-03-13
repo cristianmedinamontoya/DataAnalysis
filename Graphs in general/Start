@@ -1,0 +1,11 @@
+import numpy as np
+from matplotlib import pyplot as plt
+
+
+total_enrollment = [1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5]
+
+plt.hist(total_enrollment, bins=5, range=(1, 6))
+plt.title('Student Enrollment (Codecademy University)')
+plt.xlabel('Years Enrolled')
+plt.ylabel('Students Enrolled (Hundreds)')
+plt.show()

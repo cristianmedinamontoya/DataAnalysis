@@ -1,0 +1,35 @@
+import numpy as np
+
+calorie_stats = np.genfromtxt('cereal.csv', delimiter = ',')
+
+# print(calorie_stats)
+
+average_calories = np.mean(calorie_stats)
+print(average_calories)
+
+calorie_stats_sorted = np.sort(calorie_stats)
+print('\n')
+
+print(calorie_stats_sorted)
+
+median_calories = np.median(calorie_stats)
+print('\n')
+print(median_calories)
+
+# first_percentile = np.percentile(calorie_stats, 25)
+# third_percentile = np.percentile(calorie_stats, 75)
+# print('\n')
+new_array =[]
+for x in range(0,101,5):
+  new_array = (np.percentile(calorie_stats, x), x)
+  print(new_array)
+
+print('\n')
+more_calories = np.mean(calorie_stats > 60)
+print(more_calories)
+
+calorie_std = np.std(calorie_stats)
+print('\n')
+print(calorie_std)
+print('\n')
+print("The fact that sd is 19.35 indicates that results in the data sets are 19.3 calories spread from the center")

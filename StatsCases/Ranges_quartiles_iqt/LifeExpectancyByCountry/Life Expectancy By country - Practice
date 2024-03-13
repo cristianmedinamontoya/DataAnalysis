@@ -1,0 +1,50 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+data = pd.read_csv("country_data.csv")
+# print(data.head(5))
+life_expectancy = data['Life Expectancy']
+# print('\n')
+# print(life_expectancy.head(5))
+life_expectancy_quartiles = np.quantile(life_expectancy, [0.25, 0.5, 0.75])
+# print('\n')
+# print(life_expectancy_quartiles)
+
+#--------------NEXT step - graph-------------------#
+# plt.hist(life_expectancy_quartiles)
+# plt.show()
+# if the country has a life expectancy of 70, then according to the 
+# quartiles we have that 70 is between the Q1 and Q2
+
+#--------------NEXT QUESTIONS - GDP -------------------#
+# print('\n')
+gdp = data['GDP']
+# print(gdp.head(5))
+# print('\n')
+median_gdp  = np.quantile(gdp, 0.5)
+# print(median_gdp)
+# print('\n')
+low_gdp = data[data['GDP'] <= median_gdp]
+print(low_gdp)
+# print('\n')
+high_gdp = data[data['GDP'] > median_gdp]
+# print(high_gdp)
+print('\n')
+#Getting the information about the GDP of the countries according to the median or Q2 = 0.5
+low_gdp_quartiles = np.quantile(low_gdp['Life Expectancy'], [0.25, 0.5, 0.75])
+print(low_gdp_quartiles)
+print('\n')
+high_gdp_quartiles = np.quantile(high_gdp['Life Expectancy'],[0.25,0.5,0.75])
+print(high_gdp_quartiles)
+
+#----------Creating the graph(histogram)---------------#
+plt.hist(high_gdp['Life Expectancy'], alpha = 0.5, label ='High GDP')
+plt.hist(low_gdp['Life Expectancy'], alpha = 0.5, label ='Low GDP')
+plt.legend()
+plt.show()
+
+#For a life expectancy of 70 years according to the histogram we may say that
+#70 years is on the 1st quartile of High GDP histogram, while 3rd quartile of
+#the low GDP histogram.
+

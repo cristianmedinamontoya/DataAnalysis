@@ -1,0 +1,22 @@
+import numpy as np
+
+allergy_trials = np.array([[6, 1, 3, 8, 2], 
+                           [2, 6, 3, 9, 8], 
+                           [5, 2, 6, 9, 9]])
+#In script.py, we’ve provided data about a trial for a new allergy medication, AllerGeeThatSucks!
+#Five participants were asked to rate how drowsy the medication made them once a day for three 
+#days on a scale of one (least drowsy) to ten (most drowsy).
+#Use np.mean to find the average level of drowsiness across 
+#all the trials and save the result to the variable total_mean.
+
+#Use np.mean to find the average level of drowsiness across each day of the experiment and save to the variable trial_mean.
+#Use np.mean to find the average level of drowsiness across for each individual patient to see if some were more sensitive
+#to the drug than others and save it to the variable patient_mean.
+#Print the variables for total_mean, trial_mean, and patient_mean on three separate lines.
+
+total_mean = np.mean(allergy_trials)
+print(total_mean)
+trial_mean = np.mean(allergy_trials, axis = 1)
+print(trial_mean)
+patient_mean = np.mean(allergy_trials, axis = 0)
+print(patient_mean)
